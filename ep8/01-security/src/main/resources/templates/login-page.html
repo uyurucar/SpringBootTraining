@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!-- xml namespace -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Login Page</title>
+    <style>
+        .error {
+        color: red;
+        font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<h2>Authentication Required</h2>
+
+<form th:action="@{/authUser}" method="POST">
+    <div th:if="${param.error}">
+        <i class="error">bad credentials</i>
+    </div>
+    <p>
+        username: <input type="text" name="username">
+
+    </p>
+
+    <p>
+        password: <input type="password" name="password">
+    </p>
+
+    <input type="submit" value="Login">
+</form>
+
+</body>
+</html>
